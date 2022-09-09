@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.wrapper a{
+  padding-left: 30px;
+  text-decoration: none;
+  color: rgb(173, 173, 173);
+}
+.wrapper :hover{
+  color: white;
+}
+
+.edit{
+  background-color: green;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
