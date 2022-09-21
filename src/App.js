@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css"; /** Ez hiányzott innen, ezért nem formázta a gombot */
+  
+import { BrowserRouter as Router, Route, Routes, useParams } from "react-router-dom";
 
+import Login from "./Login";
+import Register from "./Register";
+import Addproduct from "./Addproduct";
+import UpdateProduct from "./UpdateProduct";
+import Protected from "./Protected";
+import ProductList from "./ProductList";  
+import SearchProduct from "./SearchProduct";
 function App() {
+
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/add" element={<Protected Cmp={Addproduct} />} />
+          <Route path="/update" element={<Protected Cmp={UpdateProduct} />} />
+          <Route path="/update/:id" element={<Protected Cmp={UpdateProduct} />} />
+          <Route path="/list" element={<Protected Cmp={ProductList} />} />
+          <Route path="/search" element={<Protected Cmp={SearchProduct} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
